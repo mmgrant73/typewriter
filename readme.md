@@ -9,7 +9,7 @@ whatever font a user would like to use.
 
 ![Alt text](https://github.com/mmgrant73/typewriter/blob/master/typewriter.png?raw=true "Image-TypeWriter")
 
-[Click here for Demo](https://mmgrant73.github.io/revealbox/typewriter.html) 
+[Click here for Demo](https://mmgrant73.github.io/typewriter/typewriter.html) 
 
 ### How to use it?
 It is quite easy to use it on your webpage. Just follow the below steps:
