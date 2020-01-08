@@ -7,7 +7,7 @@ its being type out. There are four types of cursors that can be set and two type
 the font-size but at the moment it only uses the Source Code Pro font but in the future I will add support
 whatever font a user would like to use.
 
-![Alt text](https://github.com/mmgrant73/revealbox/blob/master/typewriter.png?raw=true "Image-TypeWriter")
+![Alt text](https://github.com/mmgrant73/typewriter/blob/master/typewriter.png?raw=true "Image-TypeWriter")
 
 [Click here for Demo](https://mmgrant73.github.io/revealbox/typewriter.html) 
 
