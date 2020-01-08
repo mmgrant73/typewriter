@@ -64,11 +64,13 @@ Note: That is all you have to do to use this custom element.  There is an exampl
 
 ### There are only four properties that you can use to customize this element.
 
-There are four attributes that you need to set:
+There are six attributes that you can set:
 1. cursor - the type of cursor that will be used for the typing effect
 2. effect - the type of typing effect that will be used
 3. align - is used to set how the text will be aligned in the DIV tag
 4. fontsize - The font-size that the text will take
+5. textcolor - The color of the text
+6. cursorcolor - the color of the cursor
 
 Note: The inner text within the type-writer tag will be the text used for the typing effect
 

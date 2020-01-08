@@ -25,6 +25,7 @@ template.innerHTML = `
             --y-height: 40px;
             --y-heighthalf: 20px;
             --y-heighteeigth: 5px;
+            --x-cursorcolor: rgba(0,255,0,.75);
         }
         
         #outer {
@@ -56,7 +57,7 @@ template.innerHTML = `
               display: inline-block;
               border-left: solid 3px rgba(0,255,0,.75);
               position: absolute; 
-              right: -22px; 
+              right: -12px; 
               width: var(--y-heighthalf);
               animation: animated-cursor-line 600ms steps(29,end) infinite;
         }
@@ -64,7 +65,7 @@ template.innerHTML = `
         #block {
             display: inline-block;
             position: absolute; 
-            background-color: rgba(0,255,0,.75);
+            background-color: var(--x-cursorcolor); 
             right: -7px;
             top: var(--y-heighteeigth);
             height: calc(var(--y-heighthalf) + var(--y-heighteeigth));
@@ -78,17 +79,17 @@ template.innerHTML = `
         }
 
         @keyframes animated-cursor-underline{
-            from{border-bottom-color: rgba(0,255,0,.75);}
+            from{border-bottom-color: var(--x-cursorcolor);}
             to{border-bottom-color: transparent;}
         }
         
         @keyframes animated-cursor-line{
-            from{border-left-color: rgba(0,255,0,.75);}
+            from{border-left-color: var(--x-cursorcolor);}
             to{border-left-color: transparent;}
         }
             
         @keyframes animated-cursor-block{
-            from{background-color: rgba(0,255,0,.75);}
+            from{background-color: var(--x-cursorcolor);}
             to{background-color: transparent;}
         }
            
@@ -174,18 +175,44 @@ class TypeWriter extends HTMLElement {
   
   get fontsize() {
     /**
-    Getter for the effect attribute
+    Getter for the fontsize attribute
     */
-    //alert("blah");
     return this.getAttribute('fontsize');
   }
   
   set fontsize(newValue) {
     /**
-    Setter for the effect attribute
+    Setter for the fontsize attribute
     */
     this.setAttribute('fontsize', newValue);
-    //alert("got here");
+  }
+  
+  get textcolor() {
+    /**
+    Getter for the textcolor attribute
+    */
+    return this.getAttribute('textcolor');
+  }
+  
+  set textcolor(newValue) {
+    /**
+    Setter for the textcolor attribute
+    */
+    this.setAttribute('textcolor', newValue);
+  }
+  
+  get cursorcolor() {
+    /**
+    Getter for the cursorcolor attribute
+    */
+    return this.getAttribute('cursorcolor');
+  }
+  
+  set cursorcolor(newValue) {
+    /**
+    Setter for the cursorcolor attribute
+    */
+    this.setAttribute('cursorcolor', newValue);
   }
   
   getHeight() {
@@ -233,6 +260,7 @@ class TypeWriter extends HTMLElement {
     else{
         this._border.setAttribute("id", "none");
     }
+    //alert('cursortype');
   }
   
   setAlignType(val){
@@ -240,15 +268,12 @@ class TypeWriter extends HTMLElement {
     Set the text alignment for the text
     */
     if(val == "center"){
-        //this._div.setAttribute("id", "center");
         this._outer.style.textAlign = "center";
     }
     else if(val == "right"){
-        //this._div.setAttribute("id", "right");
         this._outer.style.textAlign = "right";
     }
     else{
-        //this._div.setAttribute("id", "left");
         this._outer.style.textAlign = "left";
     }
   }
@@ -283,15 +308,16 @@ class TypeWriter extends HTMLElement {
   
   setCursorColor(val) {
     let type = this._border.getAttribute("id");
-    alert(val);
+    //alert(val);
+    this._div.style.setProperty('--x-cursorcolor', val);
     if(type == "line"){
-        this._line.style.borderLeftColor = val;
+        this._border.style.borderLeft = "solid 3px " + val;
     }
     else if(type == "underline"){
-        this._underline.style.borderBottomColor = val;
+        this._border.style.borderBottom = "solid 3px " + val; 
     }
     else if(type == "block"){
-        this._block.style.backgroundColor = val;
+        this._border.style.backgroundColor = val;
     }
     else{
         
